@@ -1,0 +1,15 @@
+{
+  "name": "chatbot-ai",
+  "version": "1.0.0",
+  "description": "Application de chatbot AI avec DeepSeek",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "node-fetch": "^2.7.0"
+  }
+}

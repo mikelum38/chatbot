@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: deepseek-chatbot
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 80
+      - key: COHERE_API_KEY
+        fromDatabase: false
+      - key: NODE_ENV
+        value: production

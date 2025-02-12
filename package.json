@@ -1,22 +1,21 @@
 {
-  "name": "chatbot-ai",
+  "name": "chatbot",
   "version": "1.0.0",
-  "description": "Application de chatbot AI avec DeepSeek",
+  "description": "Chatbot avec analyse de sites web",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "dotenv": "^16.3.1",
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "cohere-ai": "^7.15.4",
     "cors": "^2.8.5",
-    "node-fetch": "^2.7.0"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "puppeteer": "^24.2.0"
   },
-  "scripts": {
-      "start": "node server.js",
-      "build": "npm install"
-    },
-    "engines": {
-      "node": ">=18.x"
-    }
- }
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

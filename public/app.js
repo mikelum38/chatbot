@@ -96,6 +96,17 @@ async function handleUserMessage() {
         userInput.focus();
         manageConversationStorage(); // Sauvegarde après chaque interaction
     }
+    // Ajouter dans handleUserMessage après la réponse
+    if (data.sources) {
+    const sourcesDiv = document.createElement('div');
+    sourcesDiv.className = 'sources';
+    sourcesDiv.innerHTML = `
+        <small>Sources : 
+            ${data.sources.map(s => `<a href="${s}" target="_blank">${s}</a>`).join(', ')}
+        </small>
+    `;
+    chatMessages.appendChild(sourcesDiv);
+    }
 }
 
 // Événements

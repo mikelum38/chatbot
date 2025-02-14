@@ -774,10 +774,7 @@ class WebsiteIndexer {
                 }
 
                 if (sorties.length === 0) {
-                    return [{
-                        content: `${t('noResults')} ${month} ${year}.`,
-                        similarity: 1
-                    }];
+                    return []; // Retourner un tableau vide pour utiliser Cohere
                 }
 
                 // Formater la réponse
@@ -1071,12 +1068,7 @@ class WebsiteIndexer {
             });
 
         if (pageResults.length === 0) {
-            return [{
-                content: "Je n'ai pas trouvé d'informations sur cette randonnée dans le site web.",
-                similarity: 0,
-                title: "Aucun résultat",
-                url: null
-            }];
+            return []; // Retourner un tableau vide pour utiliser Cohere
         }
 
         const finalContent = pageResults.length > 1 

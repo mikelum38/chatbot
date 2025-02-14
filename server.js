@@ -76,15 +76,27 @@ app.post('/api/chat', async (req, res) => {
 
         console.log('📝 Question reçue:', message);
 
-        // Rechercher une réponse
+        // Rechercher une réponse dans les données indexées
         const searchResults = await websiteIndexer.searchContent(message, websiteIndexer.data);
         
+        let response;
         if (!searchResults || searchResults.length === 0 || !searchResults[0] || !searchResults[0].content) {
-            return res.status(404).json({ error: "Aucune réponse trouvée" });
+            console.log('🤖 Aucune randonnée trouvée, utilisation de Cohere...');
+            
+            // Utiliser Cohere comme fallback
+            const cohereResponse = await cohere.generate({
+                model: 'command',
+                prompt: `Réponds à la question suivante en français de manière concise et informative: ${message}`,
+                max_tokens: 300,
+                temperature: 0.7,
+            });
+            
+            response = cohereResponse.generations[0].text.trim();
+            console.log('🤖 Réponse de Cohere:', response);
+        } else {
+            response = searchResults[0].content;
+            console.log('✅ Réponse des données de randonnée:', response);
         }
-
-        const response = searchResults[0].content;
-        console.log('✅ Réponse envoyée:', response);
 
         // Mettre à jour l'historique des messages
         previousMessages.push({ role: 'user', content: message });

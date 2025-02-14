@@ -86,8 +86,16 @@ app.post('/api/chat', async (req, res) => {
             // Utiliser Cohere comme fallback
             const cohereResponse = await cohere.generate({
                 model: 'command',
-                prompt: `Réponds à la question suivante en français de manière concise et informative: ${message}`,
-                max_tokens: 300,
+                prompt: `Tu es un assistant francophone. Instructions IMPORTANTES à suivre OBLIGATOIREMENT :
+                1. Tu DOIS TOUJOURS répondre UNIQUEMENT en français
+                2. Tu ne dois JAMAIS utiliser d'autres langues que le français
+                3. Utilise un langage naturel et chaleureux
+                4. Si on te pose une question sur une personnalité ou un sujet général, réponds de manière informative mais toujours en français
+                
+                Question de l'utilisateur: ${message}
+                
+                Rappel: Ta réponse doit être EXCLUSIVEMENT en français.`,
+                max_tokens: 500,
                 temperature: 0.7,
             });
             

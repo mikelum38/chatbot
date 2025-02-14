@@ -859,8 +859,18 @@ class WebsiteIndexer {
 
         try {
             const response = await this.cohere.generate({
-                prompt: `Tu es un assistant spécialisé dans les randonnées en montagne, qui répond toujours en français. Réponds à la question suivante de manière concise et précise : ${query}`,
-                max_tokens: 300,
+                prompt: `Tu es un assistant spécialisé dans les randonnées en montagne. Instructions importantes:
+                1. Réponds TOUJOURS en français, utilise un langage naturel et chaleureux
+                2. Si tu parles d'une randonnée spécifique, utilise ce format:
+                   - Titre: [nom avec altitude]
+                   - Date: [date]
+                   - Altitude: [en mètres]
+                   - Localisation: [massif/région]
+                   - Description: [description détaillée]
+                3. Sois concis mais informatif
+                
+                Question: ${query}`,
+                max_tokens: 500,
                 temperature: 0.7,
                 k: 0,
                 stop_sequences: [],

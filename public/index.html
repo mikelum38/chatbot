@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistant AI Cohere</title>
+    <title>Chatbot Randonnée</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -156,18 +156,43 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
         }
+                /* Ajout du style pour le bouton vocal */
+                .voice-control {
+            margin-left: auto;
+            padding: 8px 15px;
+            background: #34a853;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .voice-control:hover {
+            background: #2b8a4a;
+        }
+
+        .voice-control:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">
             <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z'/></svg>" alt="Chat">
-            Assistant AI Cohere
+            <h2>Assistant Randonnée</h2>
+           <button id="voice-btn" onclick="toggleSpeech()" class="voice-control">
+                <span>🔊 Activer la voix</span>
+            </button>
         </div>
         <div class="chat-messages" id="chatMessages">
             <div class="message assistant">
                 <div class="message-content">
-                    Bonjour ! Je suis ravi de discuter avec vous. Comment puis-je vous aider aujourd'hui ?
+                    Bonjour ! Je suis votre assistant de randonnée. 🌄 Comment puis-je vous aider ?
                 </div>
             </div>
         </div>
@@ -182,6 +207,33 @@
     </div>
 
     <script>
+                // Ajouter le code de synthèse vocale en haut du script
+                let speechEnabled = false;
+        const synth = window.speechSynthesis;
+
+        function toggleSpeech() {
+            speechEnabled = !speechEnabled;
+            const btn = document.getElementById('voice-btn');
+            btn.innerHTML = speechEnabled 
+                ? '<span>🔇 Désactiver la voix</span>' 
+                : '<span>🔊 Activer la voix</span>';
+        }
+
+        function speak(text) {
+            if (!speechEnabled || !synth) return;
+            
+            synth.cancel(); // Arrêter toute lecture en cours
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 1.0;
+            
+            // Trouver une voix française
+            const voices = synth.getVoices();
+            const frenchVoice = voices.find(v => v.lang === 'fr-FR' && v.name.includes('Google'));
+            if(frenchVoice) utterance.voice = frenchVoice;
+            
+            synth.speak(utterance);
+        }
         const messageInput = document.getElementById('messageInput');
         const sendButton = document.getElementById('sendButton');
         const chatMessages = document.getElementById('chatMessages');
@@ -254,6 +306,7 @@
 
                 // Afficher la réponse de l'assistant
                 addMessage(data.message, false, data.sources);
+                speak(data.message); // <-- Ajout de l'appel vocal ici
 
             } catch (error) {
                 addMessage(`Désolé, une erreur est survenue : ${error.message}`, false);

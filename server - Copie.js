@@ -113,7 +113,7 @@ app.post('/api/chat', async (req, res) => {
         }
         console.log('📝 Question reçue:', message);
         const patterns = {
-            projetPattern: /\b(projets?|futures?|prévues?|quels?\s*sont\s*les\s*projets?)\b/i,
+            projetPattern: /\b(projets?|futures?|prévues?)\b/i,
             askingCount: /combien/i,
             sortiePattern: /\b(sorties?|randonn[ée]e?s?)\b/i,
             yearPattern: /\b(202[0-9])\b/,
@@ -121,22 +121,20 @@ app.post('/api/chat', async (req, res) => {
             time: /quelle\s+heure\s+est[- ]il/i,
         };
         let response = '';
-
         //gestion de la question "projets"
-        if (patterns.projetPattern.test(message)) {
-            const searchResults = await websiteIndexer.searchContent(message, websiteIndexer.data);
-    
-            if (searchResults?.length > 0 && searchResults[0].isProject) {
-                response = searchResults[0].content; // ← Utiliser directement le texte formaté
+         if (patterns.projetPattern.test(message)) {
+             const searchResults = await websiteIndexer.searchContent(message, websiteIndexer.data);
+             if (searchResults && searchResults.length > 0 && searchResults[0].isProject) {
+                const projets = JSON.parse(searchResults[0].content);
                 if (patterns.askingCount.test(message)) {
-                    const count = (searchResults[0].content.match(/📋 Il y a actuellement (\d+) projets/))?.[1] || 0;
-                    response = `Il y a ${count} projets prévus pour 2025.`;
+                    response = `Il y a ${projets.length} projets prévus pour 2025.`;
+                }else{
+                    response = formatProjectResponse(projets);
                 }
-                } else {
+            }else{
                 response = "Je n'ai pas trouvé de projets.";
-            }   
-
-        } else if (patterns.sortiePattern.test(message) && patterns.yearPattern.test(message) && patterns.monthPattern.test(message)) {
+            }
+         } else if (patterns.sortiePattern.test(message) && patterns.yearPattern.test(message) && patterns.monthPattern.test(message)) {
             const monthMatch = message.match(patterns.monthPattern);
             const yearMatch = message.match(patterns.yearPattern);
             const year = parseInt(yearMatch[1]);

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -246,10 +245,7 @@
             
             const messageContent = document.createElement('div');
             messageContent.className = 'message-content';
-
-            // Remplacer les balises de markdown par des balises HTML
-            const formattedContent = formatMarkdown(content);
-            messageContent.innerHTML = formattedContent;
+            messageContent.textContent = content;
             messageDiv.appendChild(messageContent);
 
             if (sources && sources.length > 0) {
@@ -280,31 +276,6 @@
                 chatMessages.appendChild(messageDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
-        }
-
-                // Fonction pour formater le markdown en HTML
-                function formatMarkdown(text) {
-            // Remplacer les sauts de ligne (\n) par des balises <br>
-            text = text.replace(/\n/g, '<br>');
-        
-            // Remplacer le gras (**texte**) par <b></b>
-            text = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-        
-            // Traiter les titres 🏔️
-            text = text.replace(/🏔️ (.*?)\n/g, '<b>🏔️ $1</b><br>');
-
-             // Traiter les dates📅
-             text = text.replace(/📅 (.*?)\n/g, '📅 $1<br>');
-    
-             // Traiter les altitudes ⛰️
-             text = text.replace(/⛰️ (.*?)\n/g, '⛰️ $1<br>');
-             
-              // Traiter les localisations 📍
-             text = text.replace(/📍 (.*?)\n/g, '📍 $1<br>');
-             // Traiter les descriptions 📝
-             text = text.replace(/📝 (.*?)\n/g, '📝 $1<br>');
-            
-            return text;
         }
 
         async function sendMessage() {

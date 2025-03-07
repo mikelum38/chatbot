@@ -633,13 +633,12 @@ class WebsiteIndexer {
             sortiePattern: /\b(sorties?|randonn[ée]e?s?)\b/i,
             monthPattern: /\b(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\b/i,
             yearPattern: /\b(202[0-9])\b/,
-            projetPattern: /\b(projets?|futures?|prévues?|quels?\s*sont\s*les\s*projets?)\b/i,
+            projetPattern: /\b(projets?|futures?|prévues?)\b/i,
             time: /quelle\s+heure\s+est[- ]il/i,
             person: /qui\s+est\s+(.+)/i,
             hiking: /(randonnée|sortie|montagne|sommet|altitude)/i,
             askingCount: /combien/i, // Nouveau pattern pour "combien"
         };
-        
         // Rechercher le nombre de sorties pour une année
         if (patterns.sortiePattern.test(query) && patterns.yearPattern.test(query) && !patterns.monthPattern.test(query)) {
              const yearMatch = query.match(patterns.yearPattern);
@@ -652,50 +651,8 @@ class WebsiteIndexer {
                 }];
                 }
 
-        }
+             }
 
-        // Recherche de projets futurs
-
-        if (patterns.projetPattern.test(query)) {
-
-            const projetsPage = websiteData.pages.find(p => 
-                p.metadata?.isProjectPage 
-            );
-
-               if (!projetsPage) {
-                return [{ content: "Aucun projet trouvé.", similarity: 1 }];
-            }
-
-            try {
-                // Parser le contenu JSON des projets
-                const projets = JSON.parse(projetsPage.content);
-
-                // Trier les projets par date
-                projets.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-                // Formater la réponse
-                let reponse = `📋 Il y a actuellement ${projets.length} projets prévus pour 2025 :\n\n`;
-
-                projets.forEach(projet => {
-                    reponse += `📅 ${projet.date}\n`;
-                    reponse += `📍 **${projet.title}**\n`;
-                    reponse += `📝 ${projet.description}\n\n`;
-                });
-
-                return [{ 
-                    content: reponse.trim(), 
-                    similarity: 1,
-                    isProject: true,
-                    metadata: projetsPage.metadata // Transmettre les métadonnées
-                }];           
-            } catch (error) {
-                console.error('Erreur parsing projets:', error);
-                return [{
-                    content: "Désolé, je ne peux pas lire les projets pour le moment.",
-                    similarity: 1
-                }];
-            }
-        }
 
         // Gestion des questions générales
         if (patterns.time.test(query)) {
@@ -750,10 +707,50 @@ class WebsiteIndexer {
                 }];
             }    
         }
-        
+         // Recherche de projets futurs
+         if (patterns.projetPattern.test(query)) {
+            // Trouver la page des projets
+            const projetsPage = websiteData.pages.find(p => p.url && p.url.toLowerCase().includes('projets'));
 
-        // Traiter comme recherche générale
-        return this.performSearch(query, websiteData);
+            if (!projetsPage) {
+                return [{
+                    content: "Je ne trouve pas d'informations sur les projets futurs.",
+                    similarity: 1
+                }];
+            }
+
+            try {
+                // Parser le contenu JSON des projets
+                const projets = JSON.parse(projetsPage.content);
+
+                // Trier les projets par date
+                projets.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+                // Formater la réponse
+                let reponse = `📋 Il y a actuellement ${projets.length} projets prévus pour 2025 :\n\n`;
+
+                projets.forEach(projet => {
+                    reponse += `📅 ${projet.date}\n`;
+                    reponse += `📍 **${projet.title}**\n`;
+                    reponse += `📝 ${projet.description}\n\n`;
+                });
+
+                return [{ // Return an array of one project
+                    content: reponse.trim(),
+                    similarity: 1,
+                    isProject:true
+                }];
+            } catch (error) {
+                console.error('Erreur parsing projets:', error);
+                return [{
+                    content: "Désolé, je ne peux pas lire les projets pour le moment.",
+                    similarity: 1
+                }];
+            }
+        }
+
+         // Traiter comme recherche générale
+         return this.performSearch(query, websiteData);
         
     }
 

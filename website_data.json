@@ -1,7 +1,7 @@
 {
   "pages": [
     {
-      "url": "https://hiking-gallery.vercel.app/",
+      "url": "https://hiking-gallery.vercel.app",
       "title": "Rêves de Montagne",
       "content": "",
       "metadata": {
@@ -9,7 +9,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 10,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -24,7 +23,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -39,7 +37,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -54,7 +51,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -70,8 +66,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 22,
+        "location": "grand rocher",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -86,7 +81,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -101,7 +95,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -115,8 +108,7 @@
         "date": "11 juin 2017",
         "altitude": null,
         "features": [],
-        "location": "royaume des dieux \n    \n        \n            \n                \n            \n        \n        \n            \n            retour",
-        "photosCount": 65,
+        "location": "au royaume des dieux",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -131,7 +123,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -146,7 +137,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -163,8 +153,7 @@
           "lacs",
           "sommets"
         ],
-        "location": null,
-        "photosCount": 40,
+        "location": "aiguille de la grande sassière",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -179,7 +168,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -194,7 +182,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -211,8 +198,7 @@
           "lacs",
           "sommets"
         ],
-        "location": null,
-        "photosCount": 50,
+        "location": "la tournette",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -229,8 +215,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "buet",
-        "photosCount": 53,
+        "location": "cheval blanc",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -245,7 +230,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -260,7 +244,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -278,7 +261,6 @@
           "sommets"
         ],
         "location": "serre-ponçon",
-        "photosCount": 51,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -293,7 +275,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -308,7 +289,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -324,8 +304,7 @@
         "features": [
           "sommets"
         ],
-        "location": "pas de",
-        "photosCount": 46,
+        "location": "tête chevalière",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -341,8 +320,7 @@
         "features": [
           "sommets"
         ],
-        "location": "panorama",
-        "photosCount": 41,
+        "location": "rocher du baconnet",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -357,7 +335,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -374,8 +351,7 @@
           "lacs",
           "sommets"
         ],
-        "location": null,
-        "photosCount": 62,
+        "location": "rocher blanc",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -390,7 +366,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -405,7 +380,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -421,8 +395,7 @@
         "features": [
           "lacs"
         ],
-        "location": null,
-        "photosCount": 61,
+        "location": "tête de la fréma",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -437,7 +410,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -454,8 +426,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "paysage du sud des",
-        "photosCount": 48,
+        "location": "vieux chaillol",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -470,7 +441,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -485,7 +455,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -501,8 +470,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 33,
+        "location": "canigó",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -517,7 +485,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -533,8 +500,7 @@
         "features": [
           "sommets"
         ],
-        "location": "refuge des aiguilles",
-        "photosCount": 34,
+        "location": "col des aiguilles",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -549,7 +515,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -565,8 +530,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 73,
+        "location": "rocciamelone",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -581,7 +545,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -596,7 +559,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -612,8 +574,7 @@
         "features": [
           "sommets"
         ],
-        "location": "panorama permanent sur les",
-        "photosCount": 49,
+        "location": "les rochers du baconnet depuis gresse-en-vercors",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -629,8 +590,7 @@
         "features": [
           "sommets"
         ],
-        "location": "sommet",
-        "photosCount": 48,
+        "location": "le grand rocher",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -646,8 +606,7 @@
         "features": [
           "sommets"
         ],
-        "location": "col des ayes",
-        "photosCount": 39,
+        "location": "col des ayes en raquettes",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -661,8 +620,7 @@
         "date": "21 janvier 2024",
         "altitude": null,
         "features": [],
-        "location": "neige",
-        "photosCount": 54,
+        "location": "belledonne",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -676,8 +634,7 @@
         "date": "31 janvier 2024",
         "altitude": null,
         "features": [],
-        "location": "plateau des petites roches",
-        "photosCount": 21,
+        "location": "chartreuse",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -691,8 +648,7 @@
         "date": "23 janvier 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 62,
+        "location": "la grande odyssée",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -707,7 +663,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -723,8 +678,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 66,
+        "location": "mont pravouta et col des ayes",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -740,8 +694,7 @@
         "features": [
           "sommets"
         ],
-        "location": "nardent \n    \n        \n            \n                \n            \n        \n        \n            \n            retour aux galeries",
-        "photosCount": 18,
+        "location": "grésivaudan situé sur un promontoire du plateau des petites roches du côté de saint-pancrasse",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -757,8 +710,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 33,
+        "location": "col de baure",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -773,7 +725,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -789,8 +740,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 31,
+        "location": "col du baure",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -806,8 +756,7 @@
         "features": [
           "lacs"
         ],
-        "location": "fraicheur de mars",
-        "photosCount": 48,
+        "location": "tour du lac du bourget",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -823,8 +772,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 33,
+        "location": "les plagnes",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -840,8 +788,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 64,
+        "location": "croix de chamrousse",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -855,8 +802,7 @@
         "date": "29 mars 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 12,
+        "location": "arêches beaufort",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -871,7 +817,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -885,8 +830,7 @@
         "date": "4 avril 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 24,
+        "location": "prapoutel les",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -900,8 +844,7 @@
         "date": "8 avril 2024",
         "altitude": null,
         "features": [],
-        "location": "sortir de",
-        "photosCount": 34,
+        "location": "croix de",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -915,8 +858,7 @@
         "date": "11 avril 2024",
         "altitude": null,
         "features": [],
-        "location": "neige",
-        "photosCount": 28,
+        "location": "dôme des oudis en ski de rando",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -932,8 +874,7 @@
         "features": [
           "sommets"
         ],
-        "location": "superbe massif des bauges",
-        "photosCount": 36,
+        "location": "traversée des arêtes",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -947,8 +888,7 @@
         "date": "25 avril 2024",
         "altitude": 2096,
         "features": [],
-        "location": null,
-        "photosCount": 40,
+        "location": "les plagnes",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -963,7 +903,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -977,8 +916,7 @@
         "date": "25 mai 2024",
         "altitude": 1769,
         "features": [],
-        "location": "matheysin",
-        "photosCount": 25,
+        "location": "le sénépy",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -994,8 +932,7 @@
         "features": [
           "sommets"
         ],
-        "location": "forêt au-dessus du sappey-en-chartreuse",
-        "photosCount": 20,
+        "location": "le bec de",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1011,8 +948,7 @@
         "features": [
           "sommets"
         ],
-        "location": "mont ventoux",
-        "photosCount": 52,
+        "location": "le jocou",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1026,8 +962,7 @@
         "date": "12 mai 2024",
         "altitude": null,
         "features": [],
-        "location": "vercors",
-        "photosCount": 38,
+        "location": "hauts plateaux du vercors",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1043,8 +978,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 40,
+        "location": "baou des blancs",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1056,12 +990,11 @@
       "content": "La tête de Chien est un promontoire de 550 mètres d'altitude situé en France et dominant Monaco qui a joué un rôle militaire stratégique au cours du XVIIIᵉ siècle.\nDepuis Cap d'ail , sentier côtier et ascension en cherchant l'itinéraire",
       "metadata": {
         "date": "19 mai 2024",
-        "altitude": 550,
+        "altitude": null,
         "features": [
           "sommets"
         ],
-        "location": "cours du xviii",
-        "photosCount": 55,
+        "location": "tête de chien",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1075,8 +1008,7 @@
         "date": "21 mai 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 25,
+        "location": "st paul de vence",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1090,8 +1022,7 @@
         "date": "18 mai 2024",
         "altitude": 2136,
         "features": [],
-        "location": "forêt avant auvare",
-        "photosCount": 33,
+        "location": "dôme de barrot",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1106,7 +1037,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -1122,8 +1052,7 @@
         "features": [
           "sommets"
         ],
-        "location": "cheminée finale donnant accès",
-        "photosCount": 68,
+        "location": "vercors",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1139,8 +1068,7 @@
         "features": [
           "sommets"
         ],
-        "location": "sud le pays du",
-        "photosCount": 50,
+        "location": "traversée des crêtes de saint-apôtre",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1156,8 +1084,7 @@
         "features": [
           "sommets"
         ],
-        "location": "départ du col de",
-        "photosCount": 25,
+        "location": "chartreuse",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1173,8 +1100,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 31,
+        "location": "bauges",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1190,8 +1116,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 40,
+        "location": "dôme de bellefont",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1207,8 +1132,7 @@
         "features": [
           "sommets"
         ],
-        "location": "départ du col de",
-        "photosCount": 98,
+        "location": "croix de",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1224,8 +1148,7 @@
         "features": [
           "lacs"
         ],
-        "location": null,
-        "photosCount": 17,
+        "location": "belledonne",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1240,7 +1163,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -1256,8 +1178,7 @@
         "features": [
           "sommets"
         ],
-        "location": "pic de bure la",
-        "photosCount": 44,
+        "location": "pic de bure",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1274,8 +1195,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "col",
-        "photosCount": 33,
+        "location": "vercors",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1291,8 +1211,7 @@
         "features": [
           "sommets"
         ],
-        "location": "grand som",
-        "photosCount": 31,
+        "location": "chartreuse",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1308,8 +1227,7 @@
         "features": [
           "lacs"
         ],
-        "location": "la folle",
-        "photosCount": 32,
+        "location": "les lacs de la grande valloire",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1325,8 +1243,7 @@
         "features": [
           "lacs"
         ],
-        "location": null,
-        "photosCount": 37,
+        "location": "les lacs du glacier",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1340,8 +1257,7 @@
         "date": "25 juillet 2024",
         "altitude": 2448,
         "features": [],
-        "location": null,
-        "photosCount": 40,
+        "location": "belledonne",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1358,8 +1274,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "vallée du haut-bréda",
-        "photosCount": 20,
+        "location": "haut-bréda",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1375,8 +1290,7 @@
         "features": [
           "lacs"
         ],
-        "location": "lac de laffray \n    \n        \n            \n                \n            \n        \n        \n            \n            retour",
-        "photosCount": 20,
+        "location": "taillefer",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1392,8 +1306,7 @@
         "features": [
           "lacs"
         ],
-        "location": "lac palluel",
-        "photosCount": 19,
+        "location": "ecrins",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1409,8 +1322,7 @@
         "features": [
           "lacs"
         ],
-        "location": null,
-        "photosCount": 22,
+        "location": "ecrins",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1425,7 +1337,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -1439,8 +1350,7 @@
         "date": "12 août 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 40,
+        "location": "croix de belledonne",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1456,8 +1366,7 @@
         "features": [
           "lacs"
         ],
-        "location": null,
-        "photosCount": 25,
+        "location": "refuge de la valette",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1473,8 +1382,7 @@
         "features": [
           "sommets"
         ],
-        "location": "montagne pour\ncheminer ensuite",
-        "photosCount": 40,
+        "location": "le petit marchet",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1491,8 +1399,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "coeur",
-        "photosCount": 68,
+        "location": "refuge du pavé",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1506,8 +1413,7 @@
         "date": "9 Août 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 37,
+        "location": "aux sources de la romanche",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1519,13 +1425,12 @@
       "content": "Un des points culminants ( 2926m ) de la Chaîne de Belledonne, avec le Rocher Blanc 2928m et le Grand Pic 2977m tout proche.\nVoie classique par le lac Crozet puis les lacs du Domenon",
       "metadata": {
         "date": "12 août 2024",
-        "altitude": 2926,
+        "altitude": 2977,
         "features": [
           "lacs",
           "sommets"
         ],
-        "location": null,
-        "photosCount": 40,
+        "location": "la croix de belledonne",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1537,13 +1442,12 @@
       "content": "Le massif dresse fièrement 10 sommets à plus de 2 500 m, dont le plus haut est le Taillefer, un dôme minéral à 2 857 m. Le sens du mot « Taillefer » nous parait une évidence une fois à son sommet : l’homme a taillé le fer sur les pentes du massif. En effet, la montagne tire son nom du métal qui teinte de rouge une grande partie de ses roches. Une ancienne mine de plomb a donné son nom au pas de la Mine et le sommet, un plateau arrondi et rocailleux, teinté de rouge lui aussi, contraste avec l’ambiance bucolique du plateau des lacs un peu plus bas. Au sommet trône une statue de saint Éloi, patron des forgerons. Elle a été installée par les militaires du 7e régiment du matériel de Varces, le 3 avril 1998. Le sable et le ciment ont été montés à pied avec une météo qui n’a pas permis d’assembler la statue, il a donc fallu remonter la semaine suivante. Confectionnée avec d’anciens blindages de chars, la statue pèse 110 kilos et 4 militaires se sont relayés tous les 100 mètres lors de l’ascension. Le tout a été boulonné au sommet. Ascension par le plateau des lacs puis la combe nord",
       "metadata": {
         "date": "20 août 2024",
-        "altitude": 500,
+        "altitude": 2857,
         "features": [
           "lacs",
           "sommets"
         ],
-        "location": "pas de la mine",
-        "photosCount": 66,
+        "location": "le taillefer",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1560,8 +1464,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "refuge des souffles pour",
-        "photosCount": 31,
+        "location": "pic turbat",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1577,8 +1480,7 @@
         "features": [
           "lacs"
         ],
-        "location": null,
-        "photosCount": 17,
+        "location": "cascade de combefroide",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1594,8 +1496,7 @@
         "features": [
           "sommets"
         ],
-        "location": "final délicat",
-        "photosCount": 29,
+        "location": "cime du sambuis",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1611,8 +1512,7 @@
         "features": [
           "lacs"
         ],
-        "location": "cours de",
-        "photosCount": 73,
+        "location": "dent",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1628,8 +1528,7 @@
         "features": [
           "lacs"
         ],
-        "location": "darbon",
-        "photosCount": 83,
+        "location": "chablais",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1644,7 +1543,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -1661,8 +1559,7 @@
           "lacs",
           "sommets"
         ],
-        "location": null,
-        "photosCount": 22,
+        "location": "le rochail",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1678,8 +1575,7 @@
         "features": [
           "sommets"
         ],
-        "location": "circuit sur le versant",
-        "photosCount": 57,
+        "location": "tour de",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1693,8 +1589,7 @@
         "date": null,
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 0,
+        "location": "internal server error the server encountered an internal error and was unable to complete your request",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1709,7 +1604,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -1723,8 +1617,7 @@
         "date": "13 octobre 2024",
         "altitude": null,
         "features": [],
-        "location": "champsaur",
-        "photosCount": 28,
+        "location": "le piolit",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1738,8 +1631,7 @@
         "date": "15 octobre 2024",
         "altitude": 2495,
         "features": [],
-        "location": "randonneur un parcours varié",
-        "photosCount": 37,
+        "location": "grands moulins",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1751,12 +1643,11 @@
       "content": "Un incontournable de la Clarée, le lac des Béraudes est réputé pour son eau turquoise, son univers minéral .\nA 2504m , incursion au col des béraudes ( 2770m ) Visite de Névaches",
       "metadata": {
         "date": "19 octobre 2024",
-        "altitude": 2504,
+        "altitude": 2770,
         "features": [
           "lacs"
         ],
-        "location": "turquoise",
-        "photosCount": 44,
+        "location": "lac des béraudes",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1772,8 +1663,7 @@
         "features": [
           "lacs"
         ],
-        "location": "dessus du lac laramon",
-        "photosCount": 13,
+        "location": "lac du serpent",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1790,8 +1680,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "des lacs du taillefer",
-        "photosCount": 36,
+        "location": "grand galbert",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1807,8 +1696,7 @@
         "features": [
           "lacs"
         ],
-        "location": null,
-        "photosCount": 38,
+        "location": "plateau",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1824,8 +1712,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 16,
+        "location": "grand chat",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1839,8 +1726,7 @@
         "date": "5 octobre 2024",
         "altitude": null,
         "features": [],
-        "location": "ciel",
-        "photosCount": 53,
+        "location": "les orgues de valsenestre",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1855,7 +1741,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -1869,8 +1754,7 @@
         "date": "30 novembre 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 39,
+        "location": "drôme",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1886,8 +1770,7 @@
         "features": [
           "lacs"
         ],
-        "location": "dessus du lac du",
-        "photosCount": 29,
+        "location": "dent du chat",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1901,8 +1784,7 @@
         "date": "10 novembre 2024",
         "altitude": null,
         "features": [],
-        "location": "devoluy",
-        "photosCount": 50,
+        "location": "tête de vallon pierra",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1918,8 +1800,7 @@
         "features": [
           "lacs"
         ],
-        "location": "belledonne \n    \n        \n            \n                \n            \n        \n        \n            \n            retour aux galeries",
-        "photosCount": 29,
+        "location": "lac de belledonne",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1933,8 +1814,7 @@
         "date": "17 novembre 2024",
         "altitude": null,
         "features": [],
-        "location": "pas de",
-        "photosCount": 69,
+        "location": "vercors",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1950,8 +1830,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 38,
+        "location": "grand rocher",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1965,8 +1844,7 @@
         "date": "2 novembre 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 34,
+        "location": "névaches",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1983,8 +1861,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "névaches",
-        "photosCount": 53,
+        "location": "pic du lac blanc",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -1998,8 +1875,7 @@
         "date": "3 novembre 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 33,
+        "location": "col de roche noire",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2013,8 +1889,7 @@
         "date": "23 novembre 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 33,
+        "location": "molines en queyras",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2028,8 +1903,7 @@
         "date": "23 novembre 2024",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 55,
+        "location": "st véran",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2044,7 +1918,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2058,8 +1931,7 @@
         "date": "5 Décembre 2024",
         "altitude": null,
         "features": [],
-        "location": "de sornin \n    \n        \n            \n                \n            \n        \n        \n            \n            retour aux",
-        "photosCount": 42,
+        "location": "vercors",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2073,8 +1945,7 @@
         "date": "11 décembre 2024",
         "altitude": null,
         "features": [],
-        "location": "dessus de voiron",
-        "photosCount": 13,
+        "location": "notre-dame de vouise",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2090,8 +1961,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 26,
+        "location": "grand rocher",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2105,8 +1975,7 @@
         "date": "16 décembre 2024",
         "altitude": null,
         "features": [],
-        "location": "des petites roches \n    \n        \n            \n                \n            \n        \n        \n            \n            retour",
-        "photosCount": 55,
+        "location": "plateau des petites roches",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2122,8 +1991,7 @@
         "features": [
           "sommets"
         ],
-        "location": "sommet",
-        "photosCount": 29,
+        "location": "grand rocher de noël",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2139,8 +2007,7 @@
         "features": [
           "sommets"
         ],
-        "location": "grand rocher \n    \n        \n            \n                \n            \n        \n        \n            \n            retour aux",
-        "photosCount": 24,
+        "location": "trilogie au grand rocher",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2154,8 +2021,7 @@
         "date": "30 décembre 2024",
         "altitude": null,
         "features": [],
-        "location": "soleil",
-        "photosCount": 27,
+        "location": "ski",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2172,8 +2038,7 @@
           "lacs",
           "sommets"
         ],
-        "location": "patrimoine mondial de",
-        "photosCount": 32,
+        "location": "réveillon en guillestrois",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2188,7 +2053,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2203,7 +2067,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 13,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2218,7 +2081,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 1,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2233,7 +2095,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 1,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2248,7 +2109,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 1,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2263,7 +2123,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 1,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2278,7 +2137,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 1,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2293,7 +2151,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2308,7 +2165,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 7,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2323,7 +2179,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 7,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2338,7 +2193,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 8,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2353,7 +2207,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 8,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2368,7 +2221,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": true,
         "projectsCount": 7,
         "isGalleryPage": false
@@ -2383,7 +2235,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2398,7 +2249,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2413,7 +2263,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 22,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2428,7 +2277,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 20,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2443,7 +2291,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2459,8 +2306,7 @@
         "features": [
           "lacs"
         ],
-        "location": "soleil du guillestrois \n    \n        \n            \n                \n            \n        \n        \n            \n            retour",
-        "photosCount": 31,
+        "location": "jour de",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2476,8 +2322,7 @@
         "features": [
           "sommets"
         ],
-        "location": null,
-        "photosCount": 23,
+        "location": "mont de grésy",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2491,8 +2336,7 @@
         "date": "16 janvier 2025",
         "altitude": null,
         "features": [],
-        "location": "du revard \n    \n        \n            \n                \n            \n        \n        \n            \n            retour aux",
-        "photosCount": 24,
+        "location": "plateau du revard",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2506,8 +2350,7 @@
         "date": "19 janvier 2025",
         "altitude": 1951,
         "features": [],
-        "location": null,
-        "photosCount": 42,
+        "location": "tête chevalière",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2523,8 +2366,7 @@
         "features": [
           "sommets"
         ],
-        "location": "col du pet et",
-        "photosCount": 43,
+        "location": "grande odyssée",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2540,8 +2382,7 @@
         "features": [
           "sommets"
         ],
-        "location": "retour de belles chutes",
-        "photosCount": 37,
+        "location": "féerie",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2556,7 +2397,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2572,8 +2412,7 @@
         "features": [
           "sommets"
         ],
-        "location": "panorama permanent sur les",
-        "photosCount": 28,
+        "location": "les rochers du baconnet",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2589,8 +2428,7 @@
         "features": [
           "lacs"
         ],
-        "location": null,
-        "photosCount": 33,
+        "location": "léat et sur la vallée du breda",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2604,8 +2442,7 @@
         "date": "19 février 2025",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 43,
+        "location": "queyras",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2619,8 +2456,7 @@
         "date": "20 février 2025",
         "altitude": null,
         "features": [],
-        "location": null,
-        "photosCount": 53,
+        "location": "queyras",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2635,7 +2471,6 @@
         "altitude": null,
         "features": [],
         "location": null,
-        "photosCount": 0,
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": false
@@ -2643,17 +2478,50 @@
     },
     {
       "url": "https://hiking-gallery.vercel.app/gallery/db85ebe8-1cb8-414d-8110-e2a997f88dc3",
-      "title": "Tête Chevalière",
+      "title": "Tête Chevalière (1951m)",
       "content": "Après l'avoir gravie par le vallon de Combeau , cette fois une revisite depuis Richardière , via le pas de l'aiguille , bien verglacé mais ça passe bien en crampons.\nEn haut : le paradis blanc et première journée véritablement printanière avec un chaud soleil .\nUne petite poudreuse tombée dans la semaine et une belle équipe , le jour parfait !",
       "metadata": {
         "date": "2 mars 2025",
-        "altitude": null,
+        "altitude": 1951,
         "features": [
           "lacs",
           "sommets"
         ],
-        "location": "semaine et une belle",
-        "photosCount": 44,
+        "location": "tête chevalière",
+        "isProjectPage": false,
+        "projectsCount": 0,
+        "isGalleryPage": true
+      }
+    },
+    {
+      "url": "https://hiking-gallery.vercel.app/gallery/537ab785-0fda-4f5e-a2de-2b5730816fa0",
+      "title": "Le Pieu (1270m) par la Montagne d'Uriol",
+      "content": "Crête d'Uriol, le Pieu, le Gros Moran,de St Paul de Varces.\nAvec un accompagnateur aux connaissances stupéfiantes sur la botanique, les fleurs , la géologie., les glaciers qui occupaient la région , mais aussi l'histoire 😳 , les chaussures d'été ( celles du gr20 ) ressorties pour la première fois depuis octobre , bref tous les ingrédients étaient réunis ( sauf un coup de moins bien a l'approche du sommet : fringale + chaleur + sentier raide). 16,5 km - 1115m +",
+      "metadata": {
+        "date": "6 mars 2025",
+        "altitude": 1270,
+        "features": [
+          "lacs",
+          "sommets"
+        ],
+        "location": "le pieu",
+        "isProjectPage": false,
+        "projectsCount": 0,
+        "isGalleryPage": true
+      }
+    },
+    {
+      "url": "https://hiking-gallery.vercel.app/gallery/b969745d-5ee8-470b-bf0a-d27935f35c61",
+      "title": "Crêtes du Grand Manti (1799 m) - Massif de Chartreuse",
+      "content": "La cabane de l’Alpettaz (1554 m) que l’usage et les topos-guides nomment \"habert de la Dame\" est déjà un but de randonnée familiale fort séduisant dans un secteur sauvage de Chartreuse, à l’écart des \"grands sommets\". Une montée jusqu'aux Crêtes du Grand Manti (1799 m) et un retour par le vallon de Pratcel complètent très agréablement ce parcours. Conditions : beau temps doux Difficulté : pistes ou sentiers avec quelques secteurs plus pentus (chemin de Tracarta à la montée, lacets du sentier de retour après le Pré de Pratcel)",
+      "metadata": {
+        "date": "8 mars 2025",
+        "altitude": 1799,
+        "features": [
+          "lacs",
+          "sommets"
+        ],
+        "location": "crêtes du grand manti",
         "isProjectPage": false,
         "projectsCount": 0,
         "isGalleryPage": true
@@ -2661,8 +2529,8 @@
     }
   ],
   "siteStats": {
-    "totalPages": 166,
-    "totalOutings": 110,
+    "totalPages": 168,
+    "totalOutings": 112,
     "outingsByYear": {
       "2016": 1,
       "2017": 1,
@@ -2673,7 +2541,7 @@
       "2022": 2,
       "2023": 3,
       "2024": 85,
-      "2025": 11
+      "2025": 13
     },
     "outingsByMonth": {
       "2016": {
@@ -2721,7 +2589,7 @@
       "2025": {
         "1": 6,
         "2": 4,
-        "3": 1
+        "3": 3
       }
     },
     "outingsByAltitude": {},

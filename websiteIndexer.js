@@ -28,10 +28,10 @@ class WebsiteIndexer {
         this.baseUrl = '';
         this.maxRetries = 3;
         this.maxDepth = 10;
-        this.pageTimeout = 60000; // Reduced to 30 seconds
+        this.pageTimeout = 60000; //larger time
         this.navigationOptions = {
-            waitUntil: 'networkidle0', // Plus fiable que 'domcontentloaded'
-            timeout: 60000
+            waitUntil: 'domcontentloaded',  // plus fast than 'networkidle0'
+            timeout: 90000
         };
         this.validPaths = [
             '/inmy',
@@ -189,22 +189,10 @@ class WebsiteIndexer {
             try {
                 console.log(`\n🌐 Attempt ${attempt}/${this.maxRetries} for ${url}`);
 
-                // Si c'est la page projets, on charge d'abord la page d'accueil pour avoir le contexte
-                if (url.includes('/projets')) {
-                    console.log('   Chargement de la page d\'accueil pour le contexte...');
-                    await page.goto(this.baseUrl, {
-                        waitUntil: 'networkidle0',
-                        timeout: this.pageTimeout
-                    });
-                }
-
                 // Ensuite on charge la page demandée
                 try {
                     console.log('   Trying with domcontentloaded...');
-                    await page.goto(url, {
-                        waitUntil: 'domcontentloaded',
-                        timeout: this.pageTimeout
-                    });
+                    await page.goto(url, this.navigationOptions);
                 } catch (navError) {
                     console.log('   ⚠️ domcontentloaded failed, trying with networkidle0...');
                     await page.goto(url, {
@@ -212,9 +200,6 @@ class WebsiteIndexer {
                         timeout: this.pageTimeout
                     });
                 }
-
-                // Add a small delay to ensure content is loaded
-                await new Promise(resolve => setTimeout(resolve, 1000));
 
                 console.log('   ✅ Page loaded successfully');
 
@@ -262,6 +247,7 @@ class WebsiteIndexer {
             }
         }
     }
+
 
     async extractLinks(page) {
         try {
@@ -315,6 +301,8 @@ class WebsiteIndexer {
         const isGalleryPage = await page.evaluate(() => {
             return document.querySelector('meta[name="page-type"][content="gallery"], .gallery-grid') !== null;
         }) || url.includes('/gallery/');
+        //New : check if it's a month page
+        const isMonthPage = url.includes('/month/');
 
         let cleanedContent = '';
         let content = '';
@@ -323,7 +311,6 @@ class WebsiteIndexer {
             altitude: null,
             features: [],
             location: null,
-            photosCount: 0,
             isProjectPage: false,
             projectsCount: 0,
             isGalleryPage
@@ -367,14 +354,19 @@ class WebsiteIndexer {
             // Extraction du contenu des galeries
             if (isGalleryPage) {
                 content = await page.evaluate(() => {
+                    // Try to get content in the metadata-block
                     const descriptionBlock = document.querySelector('.gallery-description, [itemprop="description"]');
-                    return descriptionBlock?.textContent || Array.from(document.querySelectorAll('p'))
-                        .find(p =>
-                            p.textContent.match(/description|randonnée|ascension/i) &&
-                            !p.textContent.match(/erreur|error/i)
-                        )?.textContent || '';
+                    if (descriptionBlock){
+                        return descriptionBlock?.textContent ;
+                    }else {
+                       // If no description-block, try to get content in <p>
+                       const paragraphs = Array.from(document.querySelectorAll('p'));
+                       return paragraphs.find(p =>
+                          p.textContent.match(/description|randonnée|ascension/i) &&
+                          !p.textContent.match(/erreur|error/i)
+                         )?.textContent || '';
+                    }
                 }).catch(() => '');
-
                 cleanedContent = content
                     .replace(/(?:Voir les photos|Photo \d+\/\d+|\.$)/gi, '')
                     .replace(/\s{2,}/g, ' ')
@@ -385,7 +377,7 @@ class WebsiteIndexer {
                 const urlDateMatch = url.match(/\/(20\d{2})(?:\/month\/|\/)(\d{1,2})?/);
 
                 // Ajouter cette vérification pour les pages /month/
-                if (url.includes('/month/')) {
+                if (isMonthPage) {
                     metadata.date = null; // Désactive la date pour les pages mois
                 } else if (dateMatch) {
                     metadata.date = `${dateMatch[1]} ${dateMatch[2].toLowerCase()} ${dateMatch[3]}`;
@@ -398,15 +390,13 @@ class WebsiteIndexer {
             }
 
 
-            // Comptage des photos depuis le vrai HTML
-            metadata.photosCount = await page.$$eval('img:not(.logo):not(.icon)', imgs => imgs.length);
 
             // Appel de extractMetadata APRÈS avoir extrait les données de base
             const fullMetadata = await this.extractMetadata(
                 page,
                 isGalleryPage,
-                metadata.photosCount, // Passer le photosCount déjà calculé
-                cleanedTitle          // Passer le titre nettoyé
+                cleanedTitle,
+                 isMonthPage         //Pass if it's a month page
             );
 
             // Fusionner les métadonnées
@@ -434,23 +424,37 @@ class WebsiteIndexer {
         }
     }
 
+    filterUnwantedLocationText(location) {
+        if (!location) return location;
 
-    async extractMetadata(page, isGalleryPage, photosCount, cleanedTitle) {
+        // Regular expressions to match unwanted phrases anywhere in the string
+        const unwantedPhrases = [
+            /retour\s*(?:aux\s*galeries)?/gi, // 'gi' for global and case-insensitive
+            /retour/gi  // just retour
+        ];
+
+        // Remove all occurrences of unwanted phrases
+         for (const phrase of unwantedPhrases) {
+             location = location.replace(phrase, '');
+         }
+
+        return location.trim();
+    }
+    async extractMetadata(page, isGalleryPage, cleanedTitle, isMonthPage) {
         const metadata = {
             date: null,
             altitude: null,
             features: [],
             location: null,
-            photosCount: photosCount || 0,
             isProjectPage: page.url().includes('/projets'),
             projectsCount: 0,
-            isGalleryPage: isGalleryPage // Utilisation du paramètre actualisé
+            isGalleryPage: isGalleryPage
         };
 
         try {
             // Utiliser le titre nettoyé passé en paramètre
             const title = cleanedTitle;
-            const content = await page.$eval('body', el => {
+            let content = await page.$eval('body', el => {
                 // Supprimer les éléments indésirables de manière plus exhaustive
                 const unwantedSelectors = ['script', 'style', 'noscript', 'header', 'footer', 'nav', '.controls'];
                 unwantedSelectors.forEach(selector => {
@@ -458,6 +462,11 @@ class WebsiteIndexer {
                 });
                 return el.textContent;
             });
+           // Normalize whitespace here before location detection
+            content = content.replace(/\s+/g, ' ').trim();
+             // Creation de la nouvelle valeur de fullText
+            let fullText = `${content}`.toLowerCase(); // removed the title here
+            
 
             if (isGalleryPage) {
                 // Ajouter un fallback de date depuis le contenu
@@ -483,11 +492,24 @@ class WebsiteIndexer {
                         );
                 }
 
-                // Détection étendue de l'altitude
-                const altitudeMatch = content.match(/(\d{3,4})\s*(?:m|mètres?)\b/i)
-                    || title.match(/(\d{3,4})\s*m/i);
+                // Modification de la détection d'altitude
+                try {
+                    const altitudeMatches = [
+                        ...content.matchAll(/(\d{1,2}[ ,]?\d{3})\s*(?:m|mètres?|meters?)\b/gi),
+                        ...title.matchAll(/(\d{1,2}[ ,]?\d{3})\s*(?:m|mètres?)\b/gi)
+                    ];
+                    if (altitudeMatches.length > 0) {
+                        const altitudes = altitudeMatches
+                            .map(m => parseInt(m[1].replace(/[ ,]/g, '')))
+                            .filter(a => a > 100 && a < 9000);
 
-                if (altitudeMatch) metadata.altitude = parseInt(altitudeMatch[1]);
+                        if (altitudes.length > 0) {
+                            metadata.altitude = Math.max(...altitudes);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Erreur extraction altitude:', error);
+                }
 
                 // Features avec syntaxe corrigée + nouveaux keywords
                 const featureKeywords = {
@@ -495,24 +517,58 @@ class WebsiteIndexer {
                     sommets: ['sommet', 'pic', 'crête', 'aiguille', 'mont', 'arête', 'rocher', 'grésy']
                 };
 
-                const fullText = `${title} ${content}`.toLowerCase();
+               
                 metadata.features = Object.entries(featureKeywords)
                     .filter(([feature, terms]) =>
                         terms.some(term => fullText.includes(term))
-                    ).map(([feature]) => feature); // Parenthèse fermante ajoutée
+                    ).map(([feature]) => feature);
 
                 // Détection améliorée de la localisation
+
                 const locationMatch = fullText.match(
-                    /(?:dans (?:le|la) |au |près du? |vallée de |lac de )([A-ZÀ-ÿ][a-zÀ-ÿ-]+(?:\s+[A-ZÀ-ÿ][a-zÀ-ÿ-]+){0,3})/i
+                   /(?:(?:dans|sur|au|à la|vers|proche de|près de|au pied du|au pied de) (?:la|le|les)?\s+)(?:vallée d[eu]|lac d[eu]|montagne d[eu]|massif d[eu]|cirque d[eu]|col d[eu]|parc d[eu]|hameau d[eu])?\s+([A-ZÀ-ÿ][a-zÀ-ÿ-]+(?:\s+[A-ZÀ-ÿ][a-zÀ-ÿ-]+)*)(?!\s*\1)/i
                 );
+                if (locationMatch) {
+                    // Apply the filter here
+                    metadata.location = this.filterUnwantedLocationText(locationMatch[1].trim());
+                } else {
+                     const locationMatch2 = fullText.match(/([A-ZÀ-ÿ][a-zÀ-ÿ-]+(?:\s+[A-ZÀ-ÿ][a-zÀ-ÿ-]+)*)(?!\s*\1)/i);
+                    if (locationMatch2) {
+                        // Apply the filter here
+                       metadata.location = this.filterUnwantedLocationText(locationMatch2[0].trim()); //change here : use locationMatch2[0]
+                    } else {
+                        const locationBlock = await page.evaluate(() => {
+                            const locationElements = document.querySelectorAll('footer,nav,main');
+                            const locations = [];
+                            for (const element of locationElements) {
+                                const cleanedText = element.textContent.replace(/\s+/g, ' ').trim().toLowerCase();
+                                // check if the value is not already in the metadata
+                                if (cleanedText.match(/^[a-zà-ÿ ]+$/i) && !locations.includes(cleanedText)) {
+                                    locations.push(cleanedText);
+                                }
+                            }
+                             // remove duplicates and sort
+                            const uniqueLocations = [...new Set(locations)].sort();
+                            return uniqueLocations.length > 0 ? uniqueLocations : null;
+                        });
 
-                if (locationMatch) metadata.location = locationMatch[1];
+                        if (locationBlock && locationBlock.length > 0) {
+                            // Apply the filter here
+                            
+                             const cleanedLocation = this.filterUnwantedLocationText(locationBlock[0].trim());
+                             
+                                metadata.location = cleanedLocation;
+                           
 
+                        }
+
+                    }
+                }
 
                 if (metadata.isProjectPage) {
                     try {
                         metadata.projectsCount = await page.$$eval('.photo-card', cards => cards.length);
-                        metadata.photosCount = await page.$$eval('.photo-card img', imgs => imgs.length);
+
                     } catch (error) {
                         console.error('Erreur metadata projets:', error);
                     }
@@ -521,10 +577,11 @@ class WebsiteIndexer {
         } catch (error) {
             console.error('Erreur metadata :', error);
         }
+        // Supprimer la propriété description
+        delete metadata.description;
 
         return metadata;
     }
-
 
     // Helper pour les mois numériques
     monthToFrench(monthNumber) {
@@ -542,11 +599,12 @@ class WebsiteIndexer {
             let matches = true;
 
             // Search by altitude
-            if (criteria.minAltitude && (!page.metadata.altitude || page.metadata.altitude < criteria.minAltitude)) {
-                matches = false;
+            if (criteria.minAltitude) {
+                matches = matches && (page.metadata.altitude >= criteria.minAltitude);
             }
-            if (criteria.maxAltitude && (!page.metadata.altitude || page.metadata.altitude > criteria.maxAltitude)) {
-                matches = false;
+            
+            if (criteria.maxAltitude) {
+                matches = matches && (page.metadata.altitude <= criteria.maxAltitude);
             }
 
             // Search by features
@@ -573,6 +631,7 @@ class WebsiteIndexer {
                 results.push({
                     title: page.title,
                     url: page.url,
+                    content: page.content || 'Pas de description disponible',
                     metadata: page.metadata
                 });
             }
@@ -697,31 +756,6 @@ class WebsiteIndexer {
             }
         }
 
-        // Gestion des questions générales
-        if (patterns.time.test(query)) {
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
-            return [{
-                content: `Il est ${hours}h${minutes < 10 ? '0' + minutes : minutes}.`,
-                similarity: 1
-            }];
-        }
-         // Si la question ne concerne pas la randonnée, traiter comme question générale
-        if (!patterns.hiking.test(query)) {
-            // Pour toutes les autres questions générales, utiliser les connaissances générales
-            // et répondre en français
-            if (query.toLowerCase().includes('jean louis aubert')) {
-                return [{
-                    content: "Jean Louis Aubert est un célèbre chanteur et musicien français. Il est le chanteur et guitariste du groupe Téléphone, l'un des groupes de rock français les plus importants, formé en 1976. Après la séparation du groupe en 1986, il a poursuivi une carrière solo couronnée de succès. Il est connu pour des chansons comme 'Voilà c'est fini', 'Temps à nouveau' et 'Sur la route'.",
-                    similarity: 1
-                }];
-            }
-
-            // Ajouter d'autres réponses pour d'autres questions générales ici
-            return this.performSearch(query, websiteData);
-        }
-
         // Traiter les questions sur les sorties par année ou par mois
         if (patterns.sortiePattern.test(query)) {
             const yearMatch = query.match(patterns.yearPattern);
@@ -751,6 +785,31 @@ class WebsiteIndexer {
             }    
         }
         
+
+        // Gestion des questions générales
+        if (patterns.time.test(query)) {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            return [{
+                content: `Il est ${hours}h${minutes < 10 ? '0' + minutes : minutes}.`,
+                similarity: 1
+            }];
+        }
+         // Si la question ne concerne pas la randonnée, traiter comme question générale
+        if (!patterns.hiking.test(query)) {
+            // Pour toutes les autres questions générales, utiliser les connaissances générales
+            // et répondre en français
+            if (query.toLowerCase().includes('jean louis aubert')) {
+                return [{
+                    content: "Jean Louis Aubert est un célèbre chanteur et musicien français. Il est le chanteur et guitariste du groupe Téléphone, l'un des groupes de rock français les plus importants, formé en 1976. Après la séparation du groupe en 1986, il a poursuivi une carrière solo couronnée de succès. Il est connu pour des chansons comme 'Voilà c'est fini', 'Temps à nouveau' et 'Sur la route'.",
+                    similarity: 1
+                }];
+            }
+
+            // Ajouter d'autres réponses pour d'autres questions générales ici
+            return this.performSearch(query, websiteData);
+        }
 
         // Traiter comme recherche générale
         return this.performSearch(query, websiteData);
@@ -897,7 +956,7 @@ class WebsiteIndexer {
                             }
 
                             return {
-                                content: formattedResponse.trim(),
+                                content: formattedResponse.trim().replace(/\s+/g, ' '), //clean here !
                                 similarity: hike.similarity,
                                 title: hike.title,
                                 url: page.url

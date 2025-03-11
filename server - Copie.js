@@ -38,12 +38,15 @@ function formatProjectResponse(projects) {
 function formatHikeResponse(hike) {
     if (!hike) return null;
     const altitude = (hike.metadata && hike.metadata.altitude) || "Non spécifié";
-    const description = hike.content || hike.metadata?.description || "Pas de description disponible";
+     //MODIFICATION ICI : we display content
+    const description = hike.content || "Pas de description disponible";
     const date = hike.metadata?.date || "Date non spécifiée";
+    const location = hike.metadata?.location || "Non spécifié";
     return `
 **🏔️ ${hike.title}**
-📅 Date : ${date}
+📅 ${date}
 ⛰️ Altitude : ${altitude}${typeof altitude === 'number' ? 'm' : ''}
+📍 ${location}
 📝 Description : ${description.replace(/\*\*/g, '')}
 `;
 }
@@ -88,17 +91,23 @@ websiteIndexer.loadData()
     });
 
 // Route for website indexing
-app.post('/api/index', async (req, res) => {
+// New route for website indexing
+app.post('/api/index-website', async (req, res) => {
     try {
         console.log('🌐 Démarrage de l\'indexation...');
-         await websiteIndexer.startCrawling('https://hiking-gallery.vercel.app');
-         websiteIndexer.data.siteStats = await websiteIndexer.aggregateStats(websiteIndexer.data);
+        const { url } = req.body;
+        if (!url) {
+            return res.status(400).json({ error: "URL manquante dans le corps de la requête" });
+        }
+        await websiteIndexer.startCrawling(url);
+        websiteIndexer.data.siteStats = await websiteIndexer.aggregateStats(websiteIndexer.data);
         res.json({ success: true, message: 'Indexation terminée avec succès' });
     } catch (error) {
         console.error('❌ Erreur lors de l\'indexation:', error);
         res.status(500).json({ error: 'Erreur lors de l\'indexation' });
     }
 });
+
 
 // Route for chat
 app.post('/api/chat', async (req, res) => {
@@ -113,28 +122,67 @@ app.post('/api/chat', async (req, res) => {
         }
         console.log('📝 Question reçue:', message);
         const patterns = {
-            projetPattern: /\b(projets?|futures?|prévues?)\b/i,
+            projetPattern: /\b(projets?|futures?|prévues?|quels?\s*sont\s*les\s*projets?)\b/i,
             askingCount: /combien/i,
             sortiePattern: /\b(sorties?|randonn[ée]e?s?)\b/i,
             yearPattern: /\b(202[0-9])\b/,
             monthPattern: /\b(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\b/i,
             time: /quelle\s+heure\s+est[- ]il/i,
+            altitudeQuery: /(?:quelles? sont|voici|liste)?\s*(?:les\s+)?(?:sorties|randonnées)\s*(?:à|au dessus de|au-dessus de|à plus de)\s+(\d{1,2}[ ,]?\d{3})\s*m/i,
+            altitudeQueryCount: /(combien|nombre)\s*(?:de\s+)?sorties?\s*(?:à|au dessus de|au-dessus de|à plus de)\s+(\d{1,2}[ ,]?\d{3})\s*m/i
         };
         let response = '';
-        //gestion de la question "projets"
-         if (patterns.projetPattern.test(message)) {
-             const searchResults = await websiteIndexer.searchContent(message, websiteIndexer.data);
-             if (searchResults && searchResults.length > 0 && searchResults[0].isProject) {
-                const projets = JSON.parse(searchResults[0].content);
-                if (patterns.askingCount.test(message)) {
-                    response = `Il y a ${projets.length} projets prévus pour 2025.`;
-                }else{
-                    response = formatProjectResponse(projets);
-                }
-            }else{
-                response = "Je n'ai pas trouvé de projets.";
+
+        // Nouvelle gestion de la question "combien de sorties à plus de X mètres"
+         const altitudeQueryMatch = message.match(patterns.altitudeQuery);
+         const altitudeQueryCountMatch = message.match(patterns.altitudeQueryCount);
+
+        if (altitudeQueryMatch || altitudeQueryCountMatch) {
+          const isCountQuery = !!altitudeQueryCountMatch;
+          const altitudeMatch = isCountQuery ? altitudeQueryCountMatch : altitudeQueryMatch;
+            const minAltitude = parseInt(altitudeMatch[altitudeMatch.length-1].replace(/[ ,]/g, ''));
+            const searchCriteria = {
+                minAltitude: minAltitude,
+                features: [] 
+            };
+
+            const results = await websiteIndexer.searchHikes(searchCriteria);
+
+            if (results.length > 0) {
+                const count = results.length;
+                 if (isCountQuery){
+                    response = `Il y a ${count} sortie${count > 1 ? 's' : ''} à plus de ${minAltitude}m.`;
+                 }else{
+                    response = `🏔️ Sorties à plus de ${minAltitude}m :\n\n` +
+                        results.map(hike =>
+                           `**${hike.title}**\n` +
+                            `📅 ${hike.metadata.date || 'Date non spécifiée'}\n` +
+                            `⛰️ Altitude : ${hike.metadata.altitude || 'Non spécifiée'}m\n` +
+                            `📍 ${hike.metadata.location || ''}\n` +
+                             //MODIFICATION ICI : check content
+                             `📝 Description : ${hike.content || "Pas de description disponible"}\n\n`
+                        ).join('');
+                  }
+            } else {
+                response = `Aucune sortie trouvée au-dessus de ${minAltitude}m.`;
             }
-         } else if (patterns.sortiePattern.test(message) && patterns.yearPattern.test(message) && patterns.monthPattern.test(message)) {
+        }
+
+         //gestion de la question "projets"
+        else if (patterns.projetPattern.test(message)) {
+            const searchResults = await websiteIndexer.searchContent(message, websiteIndexer.data);
+    
+            if (searchResults?.length > 0 && searchResults[0].isProject) {
+                response = searchResults[0].content; 
+                if (patterns.askingCount.test(message)) {
+                    const count = (searchResults[0].content.match(/📋 Il y a actuellement (\d+) projets/))?.[1] || 0;
+                    response = `Il y a ${count} projets prévus pour 2025.`;
+                }
+                } else {
+                response = "Je n'ai pas trouvé de projets.";
+            }   
+
+        } else if (patterns.sortiePattern.test(message) && patterns.yearPattern.test(message) && patterns.monthPattern.test(message)) {
             const monthMatch = message.match(patterns.monthPattern);
             const yearMatch = message.match(patterns.yearPattern);
             const year = parseInt(yearMatch[1]);
